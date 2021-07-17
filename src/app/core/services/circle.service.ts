@@ -1,13 +1,11 @@
-class Circle {
-
-    radio?: number;
-    diametro?: number;
+import { CircleInterface } from "../models/circle.model";
+export class Circle implements CircleInterface{
     pi: number;
 
-    constructor(r?:number, d?:number) {
+    constructor(public radio?:number, public  diametro?:number) {
         this.pi = Math.PI;
-        this.radio = r;
-        this.diametro = d;
+        this.radio = radio;
+        this.diametro = diametro;
 
         if(this.radio) {
             this.diametro = this.radio*2
@@ -17,7 +15,7 @@ class Circle {
 
     }
 
-    calcAr(figure: Circle) {
+    calcAr() {
         if(this.radio) {
             return (this.radio **2) * this.pi;
         } else {
@@ -33,5 +31,4 @@ class Circle {
         }
             
     }
-
 }
