@@ -5,8 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   {
-    path: '',
-    loadChildren: ()=> import('./figures/figures.module').then(m => m.FiguresModule)
+    path: 'cuadrado',
+    loadChildren: () => import('./figures/figures.module').then(m => m.FiguresModule)
   }
 ];
 

@@ -1,23 +1,55 @@
+ <mat-card class="container">
+   <mat-card-header>
+    <div mat-card-avatar class="header-img"></div>
+    <mat-card-title>        
+        <strong>Cuadriláteros</strong>
+    </mat-card-title>
+    <mat-card-subtitle>
+        Perímetro y Área
+    </mat-card-subtitle>
+   </mat-card-header>
+    <form [formGroup]="form" (ngSubmit)="save($event)" >
 
 
 
-<h2>Calcular perimetro y area del cuadrado</h2>
+        <mat-card-content>
+            <div class="row">
+                <p>
+                    <mat-form-field>
+                        <mat-label>Base</mat-label>
+                        <input type="number" matInput formControlName="base">
+                        <mat-error *ngIf="baseField.hasError('min') && !baseField.hasError('required')">
+                            La medida de la base <strong>no puede ser menor a 0</strong>
+                        </mat-error>
+                        <mat-error *ngIf="baseField.hasError('required')">
+                            La medida de la base es <strong>obligatoria</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <mat-label>Altura</mat-label>
+                        <input type="number" matInput formControlName="altura">
+                        <mat-error *ngIf="alturaField.hasError('min')">
+                            La altura <strong> no puede ser menor a 0</strong>
+                        </mat-error>
+                        <mat-hint>La altura no es necesaria</mat-hint>
+                    </mat-form-field>
+                </p>
+            </div>
+            
+            <div class="row">
+                <p *ngIf= "cuadrado">
+                    El área del cuadrado es: {{ cuadrado.calcAr()}}
+                </p>
+                <p *ngIf= "cuadrado">
+                    El périmetro del cuadrado: {{ cuadrado.calcPr()}}
+                </p>
+            </div>
 
-<form [formGroup]="form" (ngSubmit)="save($event)" >
-    
-    <p>
-        {{baseField.value}}
-    </p>
-    <label for="base">Base:</label>
-    <input type="text" name="base" formControlName="base">
-
-    <label for="altura">Altura:</label>
-    <input type="text" name="altura" formControlName="altura">
-
-    <button type="submit" >Enviar</button>
-</form>
-
-<p *ngIf = "cuadrado">
-    {{ cuadrado.calcAr()}}
-    {{ cuadrado.calcPr()}}
-</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button class="submit" mat-raised-button color="primary" type="submit" >Calcular</button>
+        </mat-card-actions>
+    </form>
+ </mat-card>

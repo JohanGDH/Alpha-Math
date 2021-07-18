@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Cuadrilatero } from 'src/app/core/services/cuadrade.service';
-import { MaterialModule } from 'src/app/material/material.module';
 
 @Component({
   selector: 'app-cuadrade',
@@ -23,12 +22,13 @@ export class CuadradeComponent implements OnInit {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      base: [0, [Validators.min(0)]],
-      altura: [0, [Validators.min(0)]],
+      base: [, [Validators.min(0), Validators.required]],
+      altura: [, [Validators.min(0)]],
     })
   }
 
   ngOnInit(): void {
+    console.log("CuadradeComponent")
   }
 
   save($event:any) {
