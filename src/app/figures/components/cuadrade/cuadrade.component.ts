@@ -1,7 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import {  FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Cuadrilatero } from 'src/app/core/services/cuadrade.service';
+import { MaterialModule } from 'src/app/material/material.module';
 
 @Component({
   selector: 'app-cuadrade',
