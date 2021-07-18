@@ -1,7 +1,21 @@
-<p>cuadrade works!</p>
 
-<form action="">
-    <input type="number">
-    <button>Calcular</button>
+<h2>Calcular perimetro y area del cuadrado</h2>
 
+<form [formGroup]="form" (ngSubmit)="save($event)" >
+    
+    <p>
+        {{baseField.value}}
+    </p>
+    <label for="base">Base:</label>
+    <input type="text" name="base" formControlName="base">
+
+    <label for="altura">Altura:</label>
+    <input type="text" name="altura" formControlName="altura">
+
+    <button type="submit" >Enviar</button>
 </form>
+
+<p *ngIf = "cuadrado">
+    {{ cuadrado.calcAr()}}
+    {{ cuadrado.calcPr()}}
+</p>

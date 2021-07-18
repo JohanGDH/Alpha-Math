@@ -1,4 +1,3 @@
-import { Injectable, } from "@angular/core";
 import { TriangleInterface } from "../models/triangle.model";
 export class Triangle implements TriangleInterface {
 
@@ -9,7 +8,6 @@ export class Triangle implements TriangleInterface {
         this.lado1 = lado1;
         this.lado2 = lado2;
         this.altura = altura;
-        this.esIsosceles = false;
 
         if (this.lado1 == this.lado2 || this.base == this.lado1) {
             this.esIsosceles = true

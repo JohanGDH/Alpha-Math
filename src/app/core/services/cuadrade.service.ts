@@ -1,6 +1,7 @@
 import { CuadradeInterface } from '../models/cuadrade.model'
 export class Cuadrilatero implements CuadradeInterface{
-    
+
+
     constructor(public base:number , public altura?:number) {
         this.base = base;
         this.altura = altura;
