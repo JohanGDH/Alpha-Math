@@ -9,6 +9,7 @@ import { CuadradeComponent } from './components/cuadrade/cuadrade.component';
 import { FiguresRoutingModule } from './figures-routing.module';
 import { CircleComponent } from './components/circle/circle.component';
 import { TriangleComponent } from './components/triangle/triangle.component';
+import { FigureContainerComponent } from './components/figure-container/figure-container.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TriangleComponent } from './components/triangle/triangle.component';
     CuadradeComponent,
     CircleComponent,
     TriangleComponent,
+    FigureContainerComponent,
   ],
   imports: [
     CommonModule,

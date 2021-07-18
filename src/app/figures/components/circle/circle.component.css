@@ -1,6 +1,8 @@
 .container {
-    margin: 20px;
-    width: 450px;   
+    margin: 10px;
+    width: 450px;
+    height: 250px;
+    box-shadow: 0px 2px 4px #444;
 }
 
 mat-card-title {
@@ -23,7 +25,7 @@ mat-card-actions {
 }
 
 .row:last-child {
-    
+
     margin-left: 60px;
 }
 

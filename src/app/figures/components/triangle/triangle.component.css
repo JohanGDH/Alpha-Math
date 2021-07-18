@@ -1,6 +1,7 @@
 .container {
-    margin: 20px;
-    width: 450px;   
+    margin: 10px;
+    width: 450px;
+    box-shadow: 0px 2px 4px #444;
 }
 
 mat-card-title {
@@ -10,9 +11,11 @@ mat-card-title {
 
 .header-img {
     background-color: white;
-    background-image: url('https://c0.klipartz.com/pngpicture/793/258/gratis-png-equipo-iconos-cubo-icono-diseno-geometria-cubo.png ');
+    background-image: url('https://c0.klipartz.com/pngpicture/803/512/gratis-png-piramide-de-iconos-de-computadora-piramides.png');
     background-size: cover;
-    background-position-x: -12px;
+    background-position-x: -15px;
+    background-repeat: no-repeat;
+    
 }
 
 mat-card-actions {
@@ -24,7 +27,7 @@ mat-card-actions {
 }
 
 .row:last-child {
-    
+
     margin-left: 60px;
 }
 

@@ -24,6 +24,18 @@
                          </mat-error>
                      </mat-form-field>
                  </p>
+                 <p>
+                    <mat-form-field>
+                        <mat-label>Radio</mat-label>
+                        <input type="number" matInput formControlName="radio">
+                        <mat-error *ngIf="radioField.hasError('min') && !radioField.hasError('required')">
+                            La medida de la base <strong>no puede ser menor a 0</strong>
+                        </mat-error>
+                        <mat-error *ngIf="radioField.hasError('required')">
+                            La medida de la base es <strong>obligatoria</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </p>
              </div>
              
              <div class="row">
