@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Triangle } from 'src/app/core/services/triangle.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { Triangle } from 'src/app/core/services/triangle.service';
+import { IsPosibleService } from 'src/app/core/services/is-posible.service';
 @Component({
   selector: 'app-triangle',
   templateUrl: './triangle.component.html',
@@ -10,9 +12,10 @@ export class TriangleComponent implements OnInit {
 
   form: FormGroup;
   triangle: Triangle;
-
+  isPosible: boolean
   constructor(
     private formBuilder: FormBuilder,
+    private isPosibleService: IsPosibleService,
   ) { 
     this.buildForm()
   }
@@ -22,9 +25,14 @@ export class TriangleComponent implements OnInit {
 
   save($event:any) {
     if(this.form.valid) {
-      this.triangle = new Triangle(this.baseField.value, this.lado1Field.value, this.lado2Field.value, this.alturaField.value)
-   
-      console.log(this.triangle.calcAr())
+      this.isPosible = this.isPosibleService.isPosible(this.baseField.value, this.lado1Field.value, this.lado2Field.value);
+      console.log(this.isPosible);
+      if(this.isPosible) {
+        this.triangle = new Triangle(this.baseField.value, this.lado1Field.value, this.lado2Field.value, this.alturaField.value);   
+        console.log(this.isPosible);
+      } else {
+        this.form.reset();
+      }     
     }
   }
 

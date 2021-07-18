@@ -9,6 +9,10 @@ export class Triangle implements TriangleInterface {
         this.lado2 = lado2;
         this.altura = altura;
 
+        if(!this.lado2) {
+            this.lado2 = this.lado1;
+        }
+
         if (this.lado1 == this.lado2 || this.base == this.lado1) {
             this.esIsosceles = true
             this.lado2 = this.lado1;
