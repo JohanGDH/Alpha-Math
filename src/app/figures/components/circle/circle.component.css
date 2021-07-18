@@ -1,0 +1,33 @@
+.container {
+    margin: 20px;
+    width: 450px;   
+}
+
+mat-card-title {
+    text-decoration: underline;
+    color: #3F51B5;
+}
+
+.header-img {
+    background-color: white;
+    background-image: url('https://w7.pngwing.com/pngs/107/759/png-transparent-circle-white-circle-white-monochrome-black-thumbnail.png');
+    background-size: cover;
+}
+
+mat-card-actions {
+    margin-bottom: 0px;
+}
+
+.row {
+    display: inline-block;
+}
+
+.row:last-child {
+    
+    margin-left: 60px;
+}
+
+.submit {
+    margin-left: calc(50% - 112px) !important;
+    width: 202px;
+}

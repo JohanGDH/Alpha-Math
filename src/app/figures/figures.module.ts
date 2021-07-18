@@ -7,7 +7,7 @@ import { MaterialModule } from '../material/material.module';
 
 import { CuadradeComponent } from './components/cuadrade/cuadrade.component';
 import { FiguresRoutingModule } from './figures-routing.module';
-import { CircleComponent } from './components/circle/circle/circle.component';
+import { CircleComponent } from './components/circle/circle.component';
 
 
 @NgModule({
