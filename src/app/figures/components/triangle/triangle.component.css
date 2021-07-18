@@ -1,0 +1,34 @@
+.container {
+    margin: 20px;
+    width: 450px;   
+}
+
+mat-card-title {
+    text-decoration: underline;
+    color: #3F51B5;
+}
+
+.header-img {
+    background-color: white;
+    background-image: url('https://c0.klipartz.com/pngpicture/793/258/gratis-png-equipo-iconos-cubo-icono-diseno-geometria-cubo.png ');
+    background-size: cover;
+    background-position-x: -12px;
+}
+
+mat-card-actions {
+    margin-bottom: 0px;
+}
+
+.row {
+    display: inline-block;
+}
+
+.row:last-child {
+    
+    margin-left: 60px;
+}
+
+.submit {
+    margin-left: calc(50% - 112px) !important;
+    width: 202px;
+}

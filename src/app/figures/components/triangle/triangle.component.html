@@ -1,1 +1,82 @@
-<p>triangle works!</p>
+<mat-card class="container">
+    <mat-card-header>
+     <div mat-card-avatar class="header-img"></div>
+     <mat-card-title>
+         <strong>Triangulos</strong>
+     </mat-card-title>
+     <mat-card-subtitle>
+         Perímetro y Área
+     </mat-card-subtitle>
+    </mat-card-header>
+     <form [formGroup]="form" (ngSubmit)="save($event)" >
+         <mat-card-content>
+             <div class="row">
+                 <p>
+                     <mat-form-field>
+                         <mat-label>Base</mat-label>
+                         <input type="number" matInput formControlName="base">
+                         <mat-error *ngIf="baseField.hasError('min') && !baseField.hasError('required')">
+                             La medida de la base <strong>no puede ser menor a 0</strong>
+                         </mat-error>
+                         <mat-error *ngIf="baseField.hasError('required')">
+                             La medida de la base es <strong>obligatoria</strong>
+                         </mat-error>
+                     </mat-form-field>
+                 </p>
+                 <p>
+                     <mat-form-field>
+                         <mat-label>Lado A</mat-label>
+                         <input type="number" matInput formControlName="lado1">
+                         <mat-error *ngIf="lado1Field.hasError('min') && !lado1Field.hasError('required')">
+                            El lado A <strong> no puede ser menor a 0</strong>
+                        </mat-error>
+                        <mat-error *ngIf="lado1Field.hasError('required')">
+                            La medida del lado A es <strong>obligatoria</strong>
+                        </mat-error>
+                     </mat-form-field>
+                 </p>
+                 <p>
+                    <mat-form-field>
+                        <mat-label>Lado B</mat-label>
+                        <input type="number" matInput formControlName="lado2">
+                        <mat-hint>
+                            El lado B solo es necesario si quiere hallar la altura
+                        </mat-hint>
+                        <mat-error *ngIf="lado2Field.hasError('min')">
+                           El lado B <strong> no puede ser menor a 0</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field>
+                        <mat-label>Altura</mat-label>
+                        <input type="number" matInput formControlName="altura">
+                        <mat-hint>
+                            La altura no es necesaria si el triángulo
+                        </mat-hint>
+                        <mat-error *ngIf="alturaField.hasError('min')">
+                           La altura <strong> no puede ser menor a 0</strong>
+                       </mat-error>
+                    </mat-form-field>
+                </p>
+             </div>
+
+             <div class="row">
+                <p *ngIf= "triangle">
+                    La altura del cuadrado: {{ triangle.calcAlt() | number}}
+                </p>
+                <p *ngIf= "triangle">
+                     El área del cuadrado es: {{ triangle.calcAr() | number }}
+                 </p>
+                 <p *ngIf= "triangle">
+                     El périmetro del cuadrado: {{ triangle.calcPr() | number }}
+                 </p>
+             </div>
+
+         </mat-card-content>
+         <mat-card-actions>
+             <button class="submit" mat-raised-button color="primary" type="submit" >Calcular</button>
+         </mat-card-actions>
+     </form>
+  </mat-card>
+
