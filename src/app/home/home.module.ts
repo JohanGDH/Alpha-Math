@@ -19,7 +19,11 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     MaterialModule,
     HomeRoutingModule,
-
+  ],
+  exports: [
+    HeaderComponent,
+    BannerComponent,
+    FooterComponent
   ]
 })
 export class HomeModule { }
