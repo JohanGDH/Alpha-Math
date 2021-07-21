@@ -1,6 +1,7 @@
 language: node_js
 node_js:
 - '14'
+
 before_script:
 - npm install
 - npm install -g firebase-tools
@@ -14,11 +15,16 @@ notifications:
   on_failure: change
   on_success: change
 deploy:
-  provider: firebase
-  token:
-    secure: encrypted_firebase_CI_token
-on:
-  branch: main
+  - provider: firebase
+    token:
+      secure: encrypted_firebase_CI_token
+    on:
+      branch: main
+      branches: 
+        only:
+          - main
+      tags: true
+      all_branches: true
 env:
   global:
     secure: ABICwSlRxYH6EjxAKKAYsoEjEzGjR4G2vxP1auxaESefMC0nk5l/4mROaieN4gR0OCoDXIue/4sPjMoi8TNAo5t1Op5HCmWk2lTqBxNqkqKbNAlMclamDG2iEYONIxHc6C/tdA5TZtjW08W1pnc66RrsmFnvzBj01BZXB3ZB8VndbaVozE6UOkjt1PEUlVMXFNXy2dWsDxi9T8DFjjQ2mSsIJEIEsbyAXSAgEybboGxklhlwC5w1Q12HMe9t9TVGemro4DQVRWijBhHU/UDSElqI5xjtmbmMvVT43yOzBvOq8yJcv1i6+ysEt0443/L0wxsLbPR0w1dNTy9pis15nH+3+wRJ/35BO+pHoHGjQY2eGjLAo1vyU4/5yCtZYY4UzCBiEvTLo9QUszFGwAmMB7MtCbPwXAR44HpNAiqj7M7LQN2u/LLtNS7DKpoIZXVsqo6Fy36r638x6Q3wnzcP2hanpC+i72o5vKV5rec2PRDQwKcghwoQe3yS18Jeo5ZRlKkrYejIIRerjOVoHsoRa+MgdoQ60zQFUsNUJa1LtI0l9u6Q6tbM23npmyE5ai0aTww/kDF7F42AqY0yd/APVtmvZQ9JDRMxk640sQUVThAgd8jgmiPLaws3+lLYGK5u5Y4Ce398uOa1LXOl9J8sAexc6jGUOb3Xu38wxKYxeVo=
