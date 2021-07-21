@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - '14'
+before_script:
+- npm install 
+- npm install -g @angular/cli
+script:
+- ng build --prod
+deploy:
+  provider: pages
+  edge: true
+  skip-cleanup: true
+  keep-history: true
+  github-token: $GITHUB_TOKEN
+  target-branch: gh-pages
+  commit_message: "Deploy Release" 
+  on:
+    branch: main

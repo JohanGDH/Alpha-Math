@@ -1,6 +1,6 @@
 .container {
     background-color: #ffffff;
-    background-image: url("../../assets/pattern.png");
+    background-image: url(../../assets/patterncopy.png);
     height: fit-content;
     box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%)
 }
