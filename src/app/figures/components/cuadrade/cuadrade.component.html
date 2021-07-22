@@ -1,55 +1,67 @@
- <mat-card class="container">
-   <mat-card-header>
+<mat-card class="container">
+    <mat-card-header>
     <div mat-card-avatar class="header-img"></div>
-    <mat-card-title>        
+    <mat-card-title>
         <strong>Cuadriláteros</strong>
     </mat-card-title>
-    <mat-card-subtitle>
+        <mat-card-subtitle>
         Perímetro y Área
-    </mat-card-subtitle>
-   </mat-card-header>
-    <form [formGroup]="form" (ngSubmit)="save($event)" >
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-stepper [linear]="true">
+            <mat-step [stepControl]="form">
+                <ng-template matStepLabel>Datos</ng-template>
+                <form [formGroup]="form" (ngSubmit)="save($event)" >
+                    <p>
+                        <mat-form-field>
+                            <mat-label>Base</mat-label>
+                            <input type="number" matInput formControlName="base">
+                            <mat-error *ngIf="baseField.hasError('min') && !baseField.hasError('required')">
+                                La medida de la base <strong>no puede ser menor a 0</strong>
+                            </mat-error>
+                            <mat-error *ngIf="baseField.hasError('required')">
+                                La medida de la base es <strong>obligatoria</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <mat-label>Altura</mat-label>
+                            <input type="number" matInput formControlName="altura">
+                            <mat-error *ngIf="alturaField.hasError('min')">
+                                La altura <strong> no puede ser menor a 0</strong>
+                            </mat-error>
+                            <mat-hint>La altura no es necesaria</mat-hint>
+                        </mat-form-field>
+                    </p>
+                    <button matStepperNext class="submit" mat-raised-button color="primary" type="submit" >Calcular</button>
+                </form>
+            </mat-step>
+                
+            <mat-step>
+                <ng-template matStepLabel>Resultado</ng-template>                    
+                    <ng-container *ngIf= "!cuadrado">
+                        <h2>Rellena el formulario para poder mostrarte el resultado!!</h2>
+                    </ng-container>
+                    <ng-container *ngIf= "cuadrado">
+                        <p>
+                            <ng-katex [equation]="equationAr" >
+                            </ng-katex>
+                        </p>
+                        <p>
+                            El área del cuadrado es {{ cuadrado.calcAr() | number }} {{this.medidaField.value}}
 
-
-
-        <mat-card-content>
-            <div class="row">
-                <p>
-                    <mat-form-field>
-                        <mat-label>Base</mat-label>
-                        <input type="number" matInput formControlName="base">
-                        <mat-error *ngIf="baseField.hasError('min') && !baseField.hasError('required')">
-                            La medida de la base <strong>no puede ser menor a 0</strong>
-                        </mat-error>
-                        <mat-error *ngIf="baseField.hasError('required')">
-                            La medida de la base es <strong>obligatoria</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </p>
-                <p>
-                    <mat-form-field>
-                        <mat-label>Altura</mat-label>
-                        <input type="number" matInput formControlName="altura">
-                        <mat-error *ngIf="alturaField.hasError('min')">
-                            La altura <strong> no puede ser menor a 0</strong>
-                        </mat-error>
-                        <mat-hint>La altura no es necesaria</mat-hint>
-                    </mat-form-field>
-                </p>
-            </div>
-            
-            <div class="row">
-                <p *ngIf= "cuadrado">
-                    El área del cuadrado es: {{ cuadrado.calcAr()}}
-                </p>
-                <p *ngIf= "cuadrado">
-                    El périmetro del cuadrado: {{ cuadrado.calcPr()}}
-                </p>
-            </div>
-
-        </mat-card-content>
-        <mat-card-actions>
-            <button class="submit" mat-raised-button color="primary" type="submit" >Calcular</button>
-        </mat-card-actions>
-    </form>
- </mat-card>
+                        </p>
+                        <p>
+                            <ng-katex [equation]="equationPr" >
+                            </ng-katex>
+                        </p>
+                        <p>
+                            El périmetro del cuadrado es {{ cuadrado.calcPr() | number }} {{this.medidaField.value}}
+                        </p>
+                    </ng-container>
+            </mat-step>
+        </mat-stepper>
+    </mat-card-content>
+</mat-card>

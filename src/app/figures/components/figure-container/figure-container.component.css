@@ -9,6 +9,10 @@
 }
 
 .circle {
-    top: calc(320px) !important;
+    top: calc(380px) !important;
     height: 390px !important;
+}
+
+.cuadrade {
+    height: calc(380px) !important;
 }

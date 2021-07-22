@@ -13,6 +13,8 @@ export class CuadradeComponent implements OnInit {
 
   cuadrado: Cuadrilatero;
   form: FormGroup;
+  equationAr: string;
+  equationPr: string;
   
   constructor(
     private formBuilder: FormBuilder,
@@ -24,6 +26,7 @@ export class CuadradeComponent implements OnInit {
     this.form = this.formBuilder.group({
       base: [, [Validators.min(0), Validators.required]],
       altura: [, [Validators.min(0)]],
+      medida: [, []]
     })
   }
 
@@ -33,8 +36,19 @@ export class CuadradeComponent implements OnInit {
 
   save($event:any) {
     if(this.form.valid) {
-      this.cuadrado = new Cuadrilatero(this.baseField.value, this.alturaField.value)
-      console.log(this.cuadrado.calcAr())
+      this.cuadrado = new Cuadrilatero(this.baseField.value, this.alturaField.value);
+      this.equationAr =
+      `
+       A = L*L
+       | A = ${this.cuadrado.base}  * ${this.cuadrado.altura || this.cuadrado.base } 
+       | A = ${this.cuadrado.base * (this.cuadrado.altura || this.cuadrado.base )}`
+
+      this.equationPr =
+      `
+       P = L*4
+       |P = ${this.cuadrado.base} * 4
+       |P = ${this.cuadrado.base*4}`;
+      
     }
   }
 
@@ -44,5 +58,9 @@ export class CuadradeComponent implements OnInit {
 
   get alturaField() {
     return this.form.get('altura')
+  }
+
+  get medidaField() {
+    return this.form.get('medida')
   }
 }
