@@ -3,7 +3,7 @@ export class Circle implements CircleInterface{
     pi: number;
 
     constructor(public radio?:number, public  diametro?:number) {
-        this.pi = Math.PI;
+        this.pi = 3.14;
         this.radio = radio;
         this.diametro = diametro;
 

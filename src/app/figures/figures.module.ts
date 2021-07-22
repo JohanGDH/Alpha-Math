@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from '../material/material.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { CuadradeComponent } from './components/cuadrade/cuadrade.component';
 import { FiguresRoutingModule } from './figures-routing.module';
@@ -23,7 +24,8 @@ import { FigureContainerComponent } from './components/figure-container/figure-c
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    FiguresRoutingModule
+    FiguresRoutingModule,
+    SharedModule
   ]
 })
 export class FiguresModule { }

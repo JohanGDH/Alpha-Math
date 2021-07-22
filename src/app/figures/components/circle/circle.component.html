@@ -8,23 +8,10 @@
          Perímetro y Área
      </mat-card-subtitle>
     </mat-card-header>
-     <form [formGroup]="form" (ngSubmit)="save($event)" >
- 
+     <form [formGroup]="form" (ngSubmit)="save($event)" > 
          <mat-card-content>
-             <div class="row">
-                 <p>
-                     <mat-form-field>
-                         <mat-label>Radio</mat-label>
-                         <input type="number" matInput formControlName="radio">
-                         <mat-error *ngIf="radioField.hasError('min') && !radioField.hasError('required')">
-                             La medida de la base <strong>no puede ser menor a 0</strong>
-                         </mat-error>
-                         <mat-error *ngIf="radioField.hasError('required')">
-                             La medida de la base es <strong>obligatoria</strong>
-                         </mat-error>
-                     </mat-form-field>
-                 </p>
-                 <p>
+            <div class="row">
+                <p>
                     <mat-form-field>
                         <mat-label>Radio</mat-label>
                         <input type="number" matInput formControlName="radio">
@@ -36,17 +23,37 @@
                         </mat-error>
                     </mat-form-field>
                 </p>
-             </div>
-             
-             <div class="row">
-                 <p *ngIf= "circle">
-                     El área del cuadrado es: {{ circle.calcAr() | number }}
-                 </p>
-                 <p *ngIf= "circle">
-                     El périmetro del cuadrado: {{ circle.calcPr() | number }}
-                 </p>
-             </div>
- 
+                <p>
+                    <mat-form-field>
+                        <mat-label>Radio</mat-label>
+                        <input type="number" matInput formControlName="radio">
+                        <mat-error *ngIf="radioField.hasError('min') && !radioField.hasError('required')">
+                            La medida de la base <strong>no puede ser menor a 0</strong>
+                        </mat-error>
+                        <mat-error *ngIf="radioField.hasError('required')">
+                            La medida de la base es <strong>obligatoria</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+            </div>                
+            <div class="row">
+                <ng-container *ngIf= "circle">
+                    <p>
+                        <ng-katex [equation]="equationAr" >
+                        </ng-katex>
+                    </p>
+                    <p>
+                        El área del cuadrado es: {{ circle.calcAr() | number }}
+                    </p> 
+                    <p>
+                        <ng-katex [equation]="equationPr" >
+                        </ng-katex>
+                    </p>                                               
+                    <p>
+                        El périmetro del cuadrado: {{ circle.calcPr() | number }}
+                    </p>
+                </ng-container>                        
+            </div>
          </mat-card-content>
          <mat-card-actions>
              <button class="submit" mat-raised-button color="primary" type="submit" >Calcular</button>
