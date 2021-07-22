@@ -28,21 +28,22 @@ export class CircleComponent implements OnInit {
       this.circle = new Circle(this.radioField.value);
       this.equationAr =
       `
-       A = PI*r^{2} 
-       A = ${this.circle.pi}  * ${this.circle.radio}^{2} 
-       A = ${this.circle.pi} * ${this.circle.radio**2}  
-       A = ${this.circle.pi * this.circle.radio}`;
-       
+       A = PI*r^{2}
+       | A = ${this.circle.pi}  * ${this.circle.radio}^{2} 
+       | A = ${this.circle.pi} * ${this.circle.radio**2} 
+       | A = ${this.circle.pi * (this.circle.radio**2)}`;
+
       this.equationPr =
       `
-       A = PI*r 
-       A = ${this.circle.pi} * ${this.circle.radio}  
-       A = ${this.circle.pi * this.circle.radio}`;
+       P = PI*r
+       |P = ${this.circle.pi} * ${this.circle.radio}
+       |P = ${this.circle.pi * this.circle.radio}`;
     }
   }
   private buildForm() {
     this.form = this.formBuilder.group({
-      radio: [,[Validators.min(0)]],
+      radio: [,[Validators.min(0), Validators.required]],
+      medida: [,[Validators.required]]
     })
   }
 
@@ -50,4 +51,7 @@ export class CircleComponent implements OnInit {
     return this.form.get('radio')
   }
 
+  get medidaField() {
+    return this.form.get('medida')
+  }
 }

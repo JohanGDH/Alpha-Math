@@ -33,4 +33,9 @@ mat-card-actions {
 .submit {
     margin-left: calc(50% - 112px) !important;
     width: 202px;
+    margin-top: 20px;
+}
+
+.mat-horizontal-content-container.ng-tns-c123-6.ng-star-inserted {
+    padding-bottom: 0px;
 }

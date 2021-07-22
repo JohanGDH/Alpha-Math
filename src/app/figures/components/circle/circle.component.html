@@ -1,63 +1,81 @@
 <mat-card class="container">
     <mat-card-header>
      <div mat-card-avatar class="header-img"></div>
-     <mat-card-title>        
+     <mat-card-title>
          <strong>Circulos</strong>
      </mat-card-title>
      <mat-card-subtitle>
          Perímetro y Área
      </mat-card-subtitle>
     </mat-card-header>
-     <form [formGroup]="form" (ngSubmit)="save($event)" > 
-         <mat-card-content>
-            <div class="row">
-                <p>
-                    <mat-form-field>
-                        <mat-label>Radio</mat-label>
-                        <input type="number" matInput formControlName="radio">
-                        <mat-error *ngIf="radioField.hasError('min') && !radioField.hasError('required')">
-                            La medida de la base <strong>no puede ser menor a 0</strong>
-                        </mat-error>
-                        <mat-error *ngIf="radioField.hasError('required')">
-                            La medida de la base es <strong>obligatoria</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </p>
-                <p>
-                    <mat-form-field>
-                        <mat-label>Radio</mat-label>
-                        <input type="number" matInput formControlName="radio">
-                        <mat-error *ngIf="radioField.hasError('min') && !radioField.hasError('required')">
-                            La medida de la base <strong>no puede ser menor a 0</strong>
-                        </mat-error>
-                        <mat-error *ngIf="radioField.hasError('required')">
-                            La medida de la base es <strong>obligatoria</strong>
-                        </mat-error>
-                    </mat-form-field>
-                </p>
-            </div>                
-            <div class="row">
-                <ng-container *ngIf= "circle">
-                    <p>
-                        <ng-katex [equation]="equationAr" >
-                        </ng-katex>
-                    </p>
-                    <p>
-                        El área del cuadrado es: {{ circle.calcAr() | number }}
-                    </p> 
-                    <p>
-                        <ng-katex [equation]="equationPr" >
-                        </ng-katex>
-                    </p>                                               
-                    <p>
-                        El périmetro del cuadrado: {{ circle.calcPr() | number }}
-                    </p>
-                </ng-container>                        
-            </div>
+
+            <mat-card-content>
+                <mat-stepper [linear]="true">
+                <mat-step [stepControl]="form">                    
+                    <ng-template matStepLabel>Datos</ng-template>
+                    <form [formGroup]="form" (ngSubmit)="save($event)">
+                        <p>
+                            <mat-form-field>
+                                <mat-label>Radio</mat-label>
+                                <input type="number" matInput formControlName="radio" required>
+                                <mat-error *ngIf="radioField.hasError('min') && !radioField.hasError('required')">
+                                    La medida de la base <strong>no puede ser menor a 0</strong>
+                                </mat-error>
+                                <mat-error *ngIf="radioField.hasError('required')">
+                                    La medida de la base es <strong>obligatoria</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </p>
+                        <p>
+                            <mat-form-field>
+                                <mat-label>Medida</mat-label>
+                                <mat-select formControlName="medida" name="" id="">
+                                    <mat-option value="mm">
+                                        Milímetros
+                                    </mat-option>
+                                    <mat-option value="cm">
+                                        Centímetros
+                                    </mat-option>
+                                    <mat-option value="m">
+                                        Metros
+                                    </mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="radioField.hasError('required')">
+                                    La medida de la base es <strong>obligatoria</strong>
+                                </mat-error>
+                                <br>
+                            </mat-form-field>
+                            <button matStepperNext  class="submit" mat-raised-button color="primary" type="submit" >Calcular</button>
+
+                        </p>
+                    </form>
+                </mat-step>
+
+                <mat-step>
+                    <ng-template matStepLabel>Resultado</ng-template>                    
+                    <ng-container *ngIf= "!circle">
+                        <h2>Rellena el formulario para poder mostrarte el resultado!!</h2>
+                    </ng-container>
+                    <ng-container *ngIf= "circle">
+                        <p>
+                            <ng-katex [equation]="equationAr" >
+                            </ng-katex>
+                        </p>
+                        <p>
+                            El área del circulo es {{ circle.calcAr() | number }} {{this.medidaField.value}}
+
+                        </p>
+                        <p>
+                            <ng-katex [equation]="equationPr" >
+                            </ng-katex>
+                        </p>
+                        <p>
+                            El périmetro del circulo es {{ circle.calcPr() | number }} {{this.medidaField.value}}
+                        </p>
+                    </ng-container>
+                </mat-step>
+            </mat-stepper>
          </mat-card-content>
-         <mat-card-actions>
-             <button class="submit" mat-raised-button color="primary" type="submit" >Calcular</button>
-         </mat-card-actions>
-     </form>
+
   </mat-card>
- 
+
