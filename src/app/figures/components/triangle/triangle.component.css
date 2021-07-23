@@ -42,3 +42,8 @@ mat-card-actions {
 .altura {
     margin-bottom: 15px;
 }
+
+.image {
+    width: 70%;
+    margin-left: calc(50% - 154px);
+}

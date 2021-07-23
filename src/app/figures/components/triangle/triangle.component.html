@@ -8,7 +8,7 @@
          Perímetro y Área
      </mat-card-subtitle>
     </mat-card-header>
-     
+
          <mat-card-content>
              <mat-stepper [linear]="true" >
                 <mat-step [stepControl]="form">
@@ -63,13 +63,14 @@
                         </mat-form-field>
                         <button matStepperNext class="submit" mat-raised-button color="primary" type="submit" >Calcular</button>
                     </p>
-                </form>                    
+                </form>
                 </mat-step>
-                
+
                 <mat-step>
                     <ng-template matStepLabel>Datos</ng-template>
                     <ng-container *ngIf= "!isPosible">
                         <h2>No puede existir un triangulo con esos datos!</h2>
+                        <img  class="image" src="../../../../assets/Thinking_Isometric.svg" alt="">
                     </ng-container>
                     <ng-container *ngIf= "!triangle && isPosible">
                         <h2>Rellena el formulario para poder mostrarte el resultado!!</h2>
@@ -77,21 +78,26 @@
                     <ng-container *ngIf= "triangle && isPosible">
                         <p>
                             <ng-container *ngIf= "triangle.calcAlt() == undefined">
-                                No se pudo calcular la altura ya que el triangulo es escaleno
+                               <strong> No se pudo calcular la altura ya que el triangulo es escaleno</strong>
                             </ng-container>
                             <ng-container *ngIf= "triangle.calcAlt()">
-                                La altura del cuadrado: {{ triangle.calcAlt() | number}}
+                                <ng-katex [equation]="equationAlt"></ng-katex> <br>
+                                La altura del cuadrado: <strong>{{ triangle.calcAlt() | number}}</strong>
+                                
                             </ng-container>
                         </p>
                         <p>
-                            El área del cuadrado es: {{ triangle.calcAr() | number }}
+                            El área del cuadrado es: <strong>{{ triangle.calcAr() | number }}</strong> <br>
+                            <ng-katex [equation]="equationAr"></ng-katex>                            
                         </p>
                         <p>
-                            El périmetro del cuadrado: {{ triangle.calcPr() | number }}
-                        </p>  
-                    </ng-container>                                                           
-                </mat-step>             
+                            El périmetro del cuadrado: <strong>{{ triangle.calcPr() | number }}</strong> <br>
+                            <ng-katex [equation]="equationPr"></ng-katex>    
+                        </p>                        
+                    </ng-container>
+                    <button matStepperPrevious class="submit" mat-raised-button color="primary">Volver</button>
+                </mat-step>
             </mat-stepper>
-         </mat-card-content>        
+         </mat-card-content>
   </mat-card>
 

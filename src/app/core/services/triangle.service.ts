@@ -1,6 +1,7 @@
 import { TriangleInterface } from "../models/triangle.model";
 export class Triangle implements TriangleInterface {
 
+    esEscaleno = false;
     esIsosceles = false;
     sp: number;
 
@@ -16,8 +17,11 @@ export class Triangle implements TriangleInterface {
         }
 
         if (this.lado1 == this.lado2 || this.base == this.lado1) {
-            this.esIsosceles = true
+            this.esIsosceles = true;
             this.lado2 = this.lado1;
+        }
+        if (this.base != this.lado1 && this.base != this.lado2 && this.lado1 != this.lado2) {
+            this.esEscaleno = true;
         }
     };
 

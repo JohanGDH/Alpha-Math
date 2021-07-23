@@ -31,7 +31,6 @@ export class CuadradeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("CuadradeComponent")
   }
 
   save($event:any) {
