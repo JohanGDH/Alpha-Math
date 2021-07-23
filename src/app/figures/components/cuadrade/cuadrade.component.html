@@ -16,7 +16,7 @@
                     <p>
                         <mat-form-field>
                             <mat-label>Base</mat-label>
-                            <input type="number" matInput formControlName="base">
+                            <input type="number" matInput formControlName="base" required>
                             <mat-error *ngIf="baseField.hasError('min') && !baseField.hasError('required')">
                                 La medida de la base <strong>no puede ser menor a 0</strong>
                             </mat-error>
@@ -60,6 +60,7 @@
                         <p>
                             El périmetro del cuadrado es {{ cuadrado.calcPr() | number }} {{this.medidaField.value}}
                         </p>
+                        <button class="submit" matStepperPrevious mat-raised-button color="primary">Volver</button>
                     </ng-container>
             </mat-step>
         </mat-stepper>

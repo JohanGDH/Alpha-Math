@@ -29,7 +29,7 @@
                         <p>
                             <mat-form-field>
                                 <mat-label>Medida</mat-label>
-                                <mat-select formControlName="medida" name="" id="">
+                                <mat-select formControlName="medida" name="" id="" required>
                                     <mat-option value="mm">
                                         Milímetros
                                     </mat-option>
@@ -72,6 +72,7 @@
                         <p>
                             El périmetro del circulo es {{ circle.calcPr() | number }} {{this.medidaField.value}}
                         </p>
+                        <button matStepperPrevious  class="submit" mat-raised-button color="primary">Volver</button>
                     </ng-container>
                 </mat-step>
             </mat-stepper>

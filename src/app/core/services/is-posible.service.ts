@@ -16,7 +16,7 @@ export class IsPosibleService {
     if (base < lado1 + lado2 && lado1 < base + lado2 && lado2 < base + lado1 ) {
       return true    
     } else {
-      alert("No puede existir un triángulo con esos lados")
+      
       return false
     }
   }
