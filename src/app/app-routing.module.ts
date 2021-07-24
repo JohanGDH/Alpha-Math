@@ -23,10 +23,12 @@ const appRoutes: Routes = [
         path: 'figures',
         loadChildren:() => import('./figures/figures.module').then(m => m.FiguresModule),
       }
-    ]
-
+    ],
   },
-  
+  {
+    path:'**',
+    loadChildren: () => import('./error-404/error-404.module').then(m => m.Error404Module)
+  }
 ];
 
 @NgModule({
