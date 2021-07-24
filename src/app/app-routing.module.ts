@@ -11,9 +11,13 @@ const appRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/figures',
+        redirectTo: '/home',
         pathMatch: 'full',
 
+      },
+      {
+        path: 'home',
+        loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
       },
       {
         path: 'figures',
