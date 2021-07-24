@@ -1,8 +1,9 @@
 .container {
     background-color: #ffffff;
     background-image: url(../../assets/patterncopy.png);
-    height: 95%;
+    height: 83%;
     max-height: 820px;
     padding: 30px;
-    box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%)
+    box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);
+    margin-bottom: 20px;
 }
