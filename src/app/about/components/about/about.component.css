@@ -1,5 +1,8 @@
 
-
+.container {
+    width: 100%;
+    height: 100%;
+}
 
 .title, .main {
     width: 90%;
@@ -23,7 +26,8 @@
     align-items: center;
     justify-content: center;
     gap: 30px;
-    height: 70%;
+    height: 71%;
+    margin-bottom: 20px;
 }
 
 .main mat-card {
