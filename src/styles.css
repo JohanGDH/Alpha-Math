@@ -2,7 +2,7 @@
 @import '~katex/dist/katex.css';
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.mat-horizontal-content-container.ng-tns-c123-0.ng-star-inserted {
+/* .mat-horizontal-content-container.ng-tns-c123-0.ng-star-inserted {
     padding: 0 24px 0px 24px !important;
 }
 .mat-horizontal-content-container.ng-tns-c123-8.ng-star-inserted {
@@ -11,4 +11,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-horizontal-content-container.ng-tns-c123-5.ng-star-inserted {
     padding: 0 24px 0px 24px !important;
+} */
+
+
+.mat-horizontal-content-container {
+    padding: 0px 24px 0px 24px !important;
 }
