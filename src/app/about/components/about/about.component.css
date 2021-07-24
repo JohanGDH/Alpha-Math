@@ -1,0 +1,48 @@
+
+
+
+.title, .main {
+    width: 90%;
+    margin: 0px auto;
+}
+
+.title {
+    margin-bottom: 60px;
+    height: 20%;
+}
+.title mart-card {
+    position: relative;
+
+}
+.title img {
+    position: absolute;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    height: 70%;
+}
+
+.main mat-card {
+    width: 30%; 
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.main mat-card .image {
+    width: 92%;
+    margin: 0 auto;    
+    margin-bottom: 15px !important;
+}
+.main mat-card .image-circle {
+    width: 58%;
+    margin: 0 auto;    
+}
+
+.main mat-card .image img, 
+.main mat-card .image-circle img{
+    width: 100%;
+}

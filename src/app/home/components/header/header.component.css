@@ -17,4 +17,11 @@ mat-toolbar h2 {
 h2 a {
     color: #ffff;
     text-decoration: none;
+    transition: all 1s;    
+}
+
+h2 a:hover {
+    color: black;
+    text-decoration: underline;
+    
 }
