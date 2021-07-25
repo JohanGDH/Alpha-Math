@@ -13,13 +13,26 @@
     margin-bottom: 60px;
     height: 15%;
 }
+
 .title mart-card {
     position: relative;
+}
+
+.title h1 {
+    font-weight: bold;
+    font-size: 28;
+    color: #3F51B5;
 
 }
+
 .title img {
     position: absolute;
+    transform: rotateZ(-30deg);
+    width: 159px;
+    left: 22px;
+    bottom: -60px;
 }
+
 
 .main {
     display: flex;
@@ -31,9 +44,20 @@
 }
 
 .main mat-card {
-    width: 30%; 
+    width: 32%; 
     height: 100%;
     box-sizing: border-box;
+}
+.main mat-card h2{
+    font-weight: bold;
+    font-size: 24px;
+    color: #3F51B5;
+}
+
+.main mat-card h3{
+    font-weight: bold;
+    font-size: 16px;
+    color: #3F51B5;
 }
 
 .main mat-card .image {

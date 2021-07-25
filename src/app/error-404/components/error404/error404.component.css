@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;    
+    background: linear-gradient(89deg, #4565df, purple);
+    justify-content: center;
+    align-items: center;
+}
+
+.container div button a{
+    color: #4565df;
+    text-decoration: none;
+}
+
+.container div button a{
+    color: #4565df;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.container div button {    
+    padding: 7px;
+}
+
+.container div button:last-child {
+    margin-left: 10px;
+}
+
+.text h2 {
+    font-size: 76px;
+    color: white;
+    margin-bottom: 30px;    
+}
+.text h3     {
+    font-size: 24px;
+    color: white;
+    margin-left: 4px;
+}
+
+.image {
+    width: 50%;
+    margin-bottom: 195px;
+    margin-left: 90px;
+    height: 50%;
+}
+
+.image img {
+    width: 100%;
+    animation: svgAnimate ease-in 1.5s infinite alternate;    
+}
+
+
+@keyframes svgAnimate {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.04);
+    }
+}
