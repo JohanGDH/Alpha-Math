@@ -22,6 +22,10 @@ const appRoutes: Routes = [
       {
         path: 'figures',
         loadChildren:() => import('./figures/figures.module').then(m => m.FiguresModule),
+      },
+      {
+        path: 'contact',
+        loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
       }
     ],
   },
