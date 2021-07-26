@@ -3,40 +3,69 @@
         <mat-card-title>
             Contacto
         </mat-card-title>
-        <div class="card-content">        
+        <div class="card-content">
             <mat-card-content >
                 <div class="form">
-                    <form action="">                
+                    <form action="" [formGroup]="form" (ngSubmit)="save($event)" >
                         <p>
                             <mat-form-field>
                                 <mat-label>
                                     Nombre
                                 </mat-label>
-                                <input matInput type="text" required>
+                                <input matInput type="text" formControlName="name" required>
+                                <mat-error *ngIf="nameField.hasError('minlength') && !nameField.hasError('required')">
+                                    El nombre es <strong>muy corto</strong>
+                                </mat-error>
+                                <mat-error *ngIf="nameField.hasError('maxlength') && !nameField.hasError('required')">
+                                    El nombre es <strong>muy largo</strong>
+                                </mat-error>
+                                <mat-error *ngIf="nameField.hasError('required')">
+                                    El nombre es <strong>necesario</strong>
+                                </mat-error>
+                                <mat-error *ngIf="nameField.hasError('pattern')">
+                                    El nombre <strong>no es válido</strong>
+                                </mat-error>
                             </mat-form-field>
                         </p>
-                        
+
                         <p>
                             <mat-form-field>
                                 <mat-label>
                                     Email
                                 </mat-label>
-                                <input matInput type="email" required>
+                                <input matInput type="email" formControlName="email" required>
+                                <mat-error *ngIf="emailField.hasError('email') && !emailField.hasError('required')">
+                                    El email no <strong>es válido</strong>
+                                </mat-error>
+                                <mat-error *ngIf="emailField.hasError('required')">
+                                    El email es <strong>necesario</strong>
+                                </mat-error>
                             </mat-form-field>
                         </p>
-                        
+
                         <p>
                             <mat-form-field>
                                 <mat-label>
                                     Mensaje
                                 </mat-label>
-                                <textarea matInput></textarea>
+                                <textarea matInput #message formControlName="message" required></textarea>
+                                <mat-hint align="end">{{ message.value.length }}/256 </mat-hint>
+                                <mat-error *ngIf="messageField.hasError('minlength') && !messageField.hasError('required')">
+                                    El mensaje <strong>es muy corto</strong>
+                                </mat-error>
+                                <mat-error *ngIf="messageField.hasError('maxlength') && !messageField.hasError('required')">
+                                    El mensaje <strong>es muy largp</strong>
+                                </mat-error>
+                                <mat-error *ngIf="messageField.hasError('required')">
+                                    El mensaje <strong> es necesario</strong>
+                                </mat-error>
+                            
                             </mat-form-field>
                         </p>
                         <button class="submit" mat-raised-button color="primary">Enviar</button>
                     </form>
-                </div>            
-                
+                </div>
+
             </mat-card-content>
         <div class="image">
             <img src="../../../../assets/New Message_Isometric.svg" alt="">
